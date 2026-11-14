@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173c35">
+  <meta name="description" content="Descubre platos típicos, sabores y tradiciones de las regiones de Colombia.">
+  <title>Sabores de Colombia | Relatos de una nación</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <script src="js/presidentes.js"></script>
+  <header class="encabezado">
+    <div class="barra-superior">
+      <a class="marca" href="index.html" aria-label="Mini Portal de Colombia, inicio">
+        <span class="marca-icono" aria-hidden="true">C</span>
+        <span><strong>Colombia</strong><small>Relatos de una nación</small></span>
+      </a>
+      <nav class="menu" aria-label="Navegación principal">
+        <a href="index.html">Presidentes</a>
+        <a href="sabores.html" class="activo" aria-current="page">Sabores de Colombia</a>
+      </nav>
+      <span class="encabezado-detalle">Cultura · Historia · Territorio</span>
+    </div>
+  </header>
+
+  <main class="principal">
+    <section class="intro">
+      <div class="intro-contenido">
+        <p class="sobretitulo"><span></span> TRADICIÓN EN CADA REGIÓN</p>
+        <h1>Colombia se descubre <em>también en la mesa.</em></h1>
+        <p class="intro-descripcion">Un viaje por los platos, ingredientes y costumbres que hacen de cada rincón del país una experiencia única.</p>
+        <a class="enlace-recorrido" href="#contenedor">Descubrir sabores <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="intro-ilustracion" aria-hidden="true">
+        <div class="sol"></div>
+        <div class="montana montana-atras"></div>
+        <div class="montana montana-frente"></div>
+        <div class="bandera"><span></span><span></span><span></span></div>
+        <p>Un país para saborear</p>
+      </div>
+    </section>
+
+    <section class="listado" aria-labelledby="titulo-listado">
+      <div class="listado-encabezado">
+        <div>
+          <p class="sobretitulo">COCINAS Y TERRITORIOS</p>
+          <h2 id="titulo-listado">Sabores de Colombia</h2>
+        </div>
+        <p class="listado-nota">Conoce platos típicos y las regiones que los mantienen vivos.</p>
+      </div>
+      <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+      <p id="resumen" class="resumen"></p>
+      <section id="contenedor" class="grilla" aria-label="Listado de platos típicos"></section>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-contenido">
+      <a class="marca marca-pie" href="index.html">
+        <span class="marca-icono" aria-hidden="true">C</span>
+        <span><strong>Colombia</strong><small>Relatos de una nación</small></span>
+      </a>
+      <p>Un proyecto para descubrir la historia y diversidad de Colombia.</p>
+      <a class="fuente" href="https://api-colombia.com/" target="_blank" rel="noopener noreferrer">Datos de API Colombia <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="pie-final"><span>Hecho con orgullo colombiano</span><span class="tricolor" aria-hidden="true"></span></div>
+  </footer>
+
+  <script src="js/sabores.js"></script>
 </body>
 </html>
