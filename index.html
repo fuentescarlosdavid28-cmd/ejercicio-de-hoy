@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presidentes de Colombia</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="encabezado">
+    <div class="barra-superior">
+      <a class="marca" href="index.html" aria-label="Mini Portal de Colombia, inicio">
+        <span class="marca-icono" aria-hidden="true">C</span>
+        <span><strong>Colombia</strong><small>Relatos de una nación</small></span>
+      </a>
+      <nav class="menu" aria-label="Navegación principal">
+        <a href="index.html" class="activo" aria-current="page">Presidentes</a>
+        <a href="sabores.html">Sabores de Colombia</a>
+      </nav>
+      <span class="encabezado-detalle">Cultura · Historia · Territorio</span>
+    </div>
+  </header>
+
+  <main class="principal">
+    <section class="intro">
+      <div class="intro-contenido">
+        <p class="sobretitulo"><span></span> MEMORIA POLÍTICA DE COLOMBIA</p>
+        <h1>La historia también se cuenta <em>desde el liderazgo.</em></h1>
+        <p class="intro-descripcion">Un recorrido por las personas que han asumido la presidencia y los momentos que marcaron sus gobiernos.</p>
+        <a class="enlace-recorrido" href="#contenedor">Explorar presidentes <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="intro-ilustracion" aria-hidden="true">
+        <div class="sol"></div>
+        <div class="montana montana-atras"></div>
+        <div class="montana montana-frente"></div>
+        <div class="bandera"><span></span><span></span><span></span></div>
+        <p>Una nación, muchas historias</p>
+      </div>
+    </section>
+
+    <section class="listado" aria-labelledby="titulo-listado">
+      <div class="listado-encabezado">
+        <div>
+          <p class="sobretitulo">PERSONAJES Y PERIODOS</p>
+          <h2 id="titulo-listado">Presidentes de Colombia</h2>
+        </div>
+        <p class="listado-nota">Conoce sus periodos de gobierno y partidos políticos.</p>
+      </div>
+      <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+      <p id="resumen" class="resumen"></p>
+
+      <section id="contenedor" class="grilla" aria-label="Listado de presidentes"></section>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-contenido">
+      <a class="marca marca-pie" href="index.html">
+        <span class="marca-icono" aria-hidden="true">C</span>
+        <span><strong>Colombia</strong><small>Relatos de una nación</small></span>
+      </a>
+      <p>Un proyecto para descubrir la historia y diversidad de Colombia.</p>
+      <a class="fuente" href="https://api-colombia.com/" target="_blank" rel="noopener noreferrer">Datos de API Colombia <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="pie-final"><span>Hecho con orgullo colombiano</span><span class="tricolor" aria-hidden="true"></span></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
