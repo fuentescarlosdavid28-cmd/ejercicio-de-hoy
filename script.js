@@ -4,6 +4,25 @@ const contenedor = document.getElementById("contenedor");
 const mensaje = document.getElementById("mensaje");
 const resumen = document.getElementById("resumen");
 
+const RETRATOS_ARCHIVO = {
+  36: {
+    nombre: "José Antonio Montalvo Berbeo",
+    imagen:
+      "https://web.archive.org/web/20111105082616im_/http://www.banrepcultural.org/sites/default/files/90248/1963-10.jpg",
+    fuente:
+      "https://web.archive.org/web/20111105082616/http://www.banrepcultural.org/sites/default/files/90248/1963-10.jpg",
+    credito: "Fotografía histórica · Banrepcultural",
+  },
+  39: {
+    imagen:
+      "https://audiovisuales.icesi.edu.co/server/api/core/bitstreams/2baa3879-3f08-40db-b3df-cd4bc3b0245f/content",
+    fuente:
+      "https://audiovisuales.icesi.edu.co/items/4f9cf687-ffbc-4cd4-a8f8-908b793fdf0b",
+    credito:
+      "Archivo Diario Occidente · Biblioteca Departamental Jorge Garcés Borrero · CC BY-NC-ND 4.0",
+  },
+};
+
 // Crea un elemento con texto y clase
 function crearElemento(etiqueta, texto, clase) {
   const elemento = document.createElement(etiqueta);
@@ -58,7 +77,10 @@ function obtenerImagenReemplazo(nombre) {
 }
 
 function crearTarjeta(presidente) {
-  const nombre = [presidente.name, presidente.lastName].filter(Boolean).join(" ");
+  const retratoArchivo = RETRATOS_ARCHIVO[presidente.id];
+  const nombre =
+    (retratoArchivo && retratoArchivo.nombre) ||
+    [presidente.name, presidente.lastName].filter(Boolean).join(" ");
   const inicio = obtenerAnio(presidente.startPeriodDate);
   const fin = obtenerAnio(presidente.endPeriodDate);
   const periodo = inicio
@@ -71,11 +93,22 @@ function crearTarjeta(presidente) {
   // Imagen
   const imagen = document.createElement("img");
   const imagenReemplazo = obtenerImagenReemplazo(nombre);
-  const urlImagen = presidente.image || presidente.imageUrl;
+  const urlImagen =
+    (retratoArchivo && retratoArchivo.imagen) ||
+    presidente.image ||
+    presidente.imageUrl;
   imagen.setAttribute("src", urlImagen || imagenReemplazo);
-  imagen.setAttribute("alt", urlImagen ? "Foto de " + nombre : "Retrato ilustrado de " + nombre + "; imagen de archivo no disponible");
+  imagen.setAttribute(
+    "alt",
+    urlImagen
+      ? "Fotografía histórica de " + nombre
+      : "Retrato ilustrado de " + nombre + "; imagen de archivo no disponible"
+  );
   imagen.setAttribute("loading", "lazy");
   imagen.setAttribute("decoding", "async");
+  if (retratoArchivo) {
+    imagen.classList.add("imagen-archivo");
+  }
   imagen.onerror = function () {
     imagen.onerror = null;
     imagen.setAttribute("src", imagenReemplazo);
@@ -91,6 +124,13 @@ function crearTarjeta(presidente) {
   cuerpo.appendChild(titulo);
   cuerpo.appendChild(etiqueta);
   cuerpo.appendChild(partido);
+  if (retratoArchivo) {
+    const atribucion = crearElemento("a", retratoArchivo.credito, "fuente-fotografica");
+    atribucion.href = retratoArchivo.fuente;
+    atribucion.target = "_blank";
+    atribucion.rel = "noopener noreferrer";
+    cuerpo.appendChild(atribucion);
+  }
 
   tarjeta.appendChild(imagen);
   tarjeta.appendChild(cuerpo);

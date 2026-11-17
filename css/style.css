@@ -544,6 +544,14 @@ a:focus-visible {
   filter: saturate(1.08);
 }
 
+.tarjeta img.imagen-archivo,
+.tarjeta:hover img.imagen-archivo {
+  background: #eeede7;
+  filter: none;
+  object-fit: contain;
+  transform: none;
+}
+
 .tarjeta-cuerpo {
   flex: 1;
   display: flex;
@@ -572,6 +580,19 @@ a:focus-visible {
   color: var(--tinta-suave);
   font-size: 0.86rem;
   line-height: 1.7;
+}
+
+.fuente-fotografica {
+  margin-top: 3px;
+  color: var(--tinta-suave);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  text-decoration-color: #b7bcb3;
+  text-underline-offset: 3px;
+}
+
+.fuente-fotografica:hover {
+  color: var(--bosque-claro);
 }
 
 .etiqueta {
