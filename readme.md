@@ -39,7 +39,8 @@ El proyecto cuenta con dos páginas conectadas mediante hipervínculos:
 - Creación dinámica de tarjetas en el DOM con `createElement` y `appendChild`.
 - Mensaje de "Cargando..." con spinner mientras llegan los datos.
 - Manejo de errores con `catch`: si la API falla, se muestra un mensaje en pantalla.
-- Imagen de reemplazo cuando una foto de la API no carga.
+- Retrato SVG de archivo cuando una foto falta o no carga; evita mostrar
+  retratos de personas equivocadas.
 - Navegación entre páginas con hipervínculos (sin eventos de JavaScript).
 - Diseño responsive con CSS Grid.
 - Extras:
